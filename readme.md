@@ -26,7 +26,7 @@
 - 克隆仓库并切换目录：`git clone https://github.com/waveman800/extract-novel.git `，`cd extract-novel`
 
 - 安装依赖：`pip install -r requirements.txt`
-- 在当前目录创建`.env`文件，并填入`DEEPSEEK_API`。
+- 在当前目录创建`.env`文件，并填入'API_KEY'\'API-URL'\'model'。
 - 把你要提取的小说或文本，放到当前目录，在`example.py`中修改`path`。
 - ***强烈建议您结合要提取的小说修改`schema.py`中的`schema`示例。在下面的部分中有详细介绍`schema`。***
 

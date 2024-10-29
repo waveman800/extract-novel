@@ -29,14 +29,14 @@ class BaseModel:
 
 
 class DeepseekChat(BaseModel):
-    def __init__(self, path: str = '', model: str = "Qwen/Qwen2.5-7B-Instruct") -> None:
+    def __init__(self, path: str = '', model: str = os.getenv('model')) -> None:
         super().__init__(path)
         self.model = model
 
     def chat(self, system_prompt: str, user_prompt: str) -> str:
-        client = OpenAI(api_key=os.getenv('DEEPSEEK_API'), base_url=os.getenv('DEEPSEEK_BASE_URL'))
+        client = OpenAI(api_key=os.getenv('API_KEY'), base_url=os.getenv('API_URL'))
         response = client.chat.completions.create(
-            model="Qwen/Qwen2.5-7B-Instruct",
+            model=os.getenv('model'),
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},

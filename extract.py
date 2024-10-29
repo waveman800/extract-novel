@@ -6,16 +6,32 @@ from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
 
 SYSTEM_PROMPT = """
-Your goal is to extract structured information from the user's input that matches the form described below. When extracting information please make sure it matches the type information exactly. Do not add any attributes that do not appear in the schema shown below.
+你是一个专业的对话提取助手。你的任务是从输入的文本中提取人物对话，仅提取直接引语部分。
+
+规则：
+1. 只提取人物说的话（直接引语），不提取描述性文本
+2. 确保每段对话都有明确的说话人
+3. 如果一段文本中没有对话，则返回空数组
+4. 对话必须是完整的，不要提取半句话
+5. 不要提取旁白或描述性文字
+6. 如果对话被分割或不完整，需要将其完整提取
+
+请按照以下格式提取信息：
 {TypeScript}
-Please output the extracted information in JSON format in Excel dialect. 
 
-Do NOT add any clarifying information. Output MUST follow the schema above. Do NOT add any additional columns that do not appear in the schema.
+请以 JSON 格式输出提取的信息。
 
-Input: 
+示例输入：
 {Input}
-Output:
+
+示例输出：
 {Output}
+
+注意：
+- 只输出符合模式的 JSON 数据
+- 不要添加任何解释或额外信息
+- 确保输出的每条记录都包含完整的对话
+- 如果找不到有效的对话，返回空数组 []
 """
 
 TYPE_SCRIPT = """

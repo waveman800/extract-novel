@@ -23,7 +23,7 @@
 
 ## QuickStart
 
-- 克隆仓库并切换目录：`git clone https://github.com/KMnO4-zx/extract-dialogue.git `，`cd extract-dialogue`
+- 克隆仓库并切换目录：`git clone https://github.com/waveman800/extract-novel.git `，`cd extract-novel`
 
 - 安装依赖：`pip install -r requirements.txt`
 - 在当前目录创建`.env`文件，并填入`DEEPSEEK_API`。
